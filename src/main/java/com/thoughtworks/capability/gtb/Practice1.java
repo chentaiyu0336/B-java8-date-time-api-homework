@@ -11,6 +11,8 @@ import java.time.LocalDate;
 public class Practice1 {
 
   public static long getDaysBetweenNextLaborDay(LocalDate date) {
-    return 0;
+    LocalDate laborDay = LocalDate.of(date.getYear(), 5, 1);
+    LocalDate nextLaborDay=date.isBefore(laborDay)?laborDay:laborDay.plusYears(1);
+    return nextLaborDay.toEpochDay()-date.toEpochDay();
   }
 }
